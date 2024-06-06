@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/fragments/head :: head"></head>
+<body class="hold-transition skin-blue sidebar-mini">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+
+		<div th:replace="admin/fragments/header :: header"></div>
+
+		<!-- =============================================== -->
+
+		<div th:replace="admin/fragments/sidebar :: side"></div>
+
+
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Sửa danh mục <small></small>
+				</h1>
+				
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="col-md-6">
+				
+					<form role="form" method="post" th:action="@{/admin/edit-category}" th:object="${category}">
+					 <input	type="text" class="form-control" th:field="*{id}">
+						
+						<div class="box-body">
+							<div class="form-group">
+								<label>CategoryName</label>
+								 <input	type="text" class="form-control" th:field="*{categoryName}">
+							</div>
+
+							<div class="form-check form-check-inline">
+								<input type="radio" class="form-check-input" th:field="*{categoryStatus}"
+									 value="1" />
+								<label class="form-check-label" for="inlineRadio1">Active</label>
+							</div>
+
+							<div class="form-check form-check-inline">
+								<input type="radio" class="form-check-input" th:field="*{categoryStatus}"
+									value="0" />
+								<label class="form-check-label" for="inlineRadio2">Hidden</label>
+							</div>
+						
+						</div>
+
+						<div class="box-footer">
+							<button type="btn btn-success" class="btn btn-primary">Update</button>
+						</div>
+					</form>
+
+
+				</div>
+
+
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<div th:replace="admin/fragments/footer :: footer"></div>
+
+
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 3 -->
+
+	<div th:replace="admin/fragments/script :: script"></div>
+
+</body>
+</html>
